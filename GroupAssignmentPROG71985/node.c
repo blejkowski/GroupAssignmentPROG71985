@@ -13,7 +13,6 @@ pLISTNODE createNode(TASK task) {
 	else {
 		newNode->task = copyTask(task);
 		newNode->next = NULL;
-
 		return newNode;
 	}
 

@@ -24,10 +24,11 @@ bool addTask(pLIST thisList, TASK task) {
 	}
 	return true;
 }
+//this function i need to add pushing back the task numbers
 void removeTask(pLIST thisList, TASK task) {
 	pLISTNODE currentNode = thisList->list;
 	if (compareTasks(currentNode->task, task)) {
-		if (getNextNode(currentNode != NULL))
+		if (getNextNode(currentNode) != NULL)
 			thisList->list = getNextNode(currentNode);
 		else
 			thisList->list = NULL;
@@ -59,6 +60,21 @@ void Display(LIST thisList) {
 	}
 }
 
+int getNumberOfTasks(pLIST thisList) {
+	int count = 0;
+	if (thisList->list == NULL) {
+		return 0;
+	}
+	else {
+		pLISTNODE currentNode = thisList->list;
+		do {
+			count++;
+			currentNode = getNextNode(currentNode);
+		} while (currentNode != NULL);
+		return count;
+	}
+}
+
 void disposeList(pLIST thisList) {
 
 	pLISTNODE tmp;
@@ -69,5 +85,43 @@ void disposeList(pLIST thisList) {
 		tmp = current;
 		current = getNextNode(current);
 		disposeNode(tmp);
+	}
+}
+
+pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber) {
+	if (thisList->list == NULL) {
+		return 0;
+	}
+	else {
+		pLISTNODE currentNode = thisList->list;
+		do {
+			if (thisList->list->task.taskNumber, taskNumber) {
+				pLISTNODE taskNode = thisList->list;
+				return taskNode;
+			}
+			currentNode = getNextNode(currentNode);
+		} while (currentNode != NULL);
+	}
+}
+
+//delete task by id
+bool deleteTaskByNumber(pLIST thisList, int taskNumber) {
+	if (thisList->list == NULL) {
+		return 0;
+	}
+	else {
+		pLISTNODE currentNode = thisList->list;
+		while (currentNode != NULL){
+			if (thisList->list->task.taskNumber == taskNumber) {
+				pLISTNODE taskNodeToDelete = findTaskByNumber(thisList, taskNumber);
+			/*	TASK taskToRemove = findTaskByNumber(taskNumber);
+				removeTask(thisList, taskToRemove);*/
+				removeTask(thisList, taskNodeToDelete->task);
+				return true;
+			}
+			currentNode = getNextNode(currentNode);
+		}
+
+		return false;
 	}
 }

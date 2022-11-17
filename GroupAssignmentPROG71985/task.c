@@ -47,5 +47,6 @@ void printTask(TASK task) {
 	else
 		priorityString = "High";
 	
-	printf("Task Number: %d\nTask Info: %s\nTask Complete: %s\nTask Priority: %s", task.taskNumber, task.taskInfo, completeString, priorityString);
+	printf("Task Number: %d\nTask Info: %s\nTask Complete: %s\nTask Priority: %s\n", task.taskNumber, task.taskInfo, completeString, priorityString);
 }
+
