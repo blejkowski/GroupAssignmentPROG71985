@@ -8,7 +8,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by:
 *
-* This module contains all of the task declaritions and function definitions/prototypes to be utilized
+* This module contains all of the task declaritions/prototypes to be utilized
 */
 
 typedef struct task {
@@ -25,7 +25,7 @@ typedef struct task {
 *
 * Params: int taskNumber, char* taskInfo, int isComplete, int priority
 *		
-* Return: TASK
+* Return: TASK createdTask
 */
 TASK createTask(int, char*, int, int);
 
@@ -34,9 +34,9 @@ TASK createTask(int, char*, int, int);
 * ------------------------
 * This function takes a task and returns a task.
 *
-* Params: TASK
+* Params: TASK taskToGet
 *
-* Return: TASK
+* Return: TASK taskGotten
 */
 TASK getTask(TASK);
 //set/update task
@@ -46,9 +46,9 @@ TASK getTask(TASK);
 * ------------------------
 * This function take a TASK as a parameter and returns a copy of it.
 *
-* Params: TASK
+* Params: TASK taskToCopy
 *
-* Return: TASK
+* Return: TASK copiedTask
 */
 TASK copyTask(TASK);
 
@@ -57,7 +57,7 @@ TASK copyTask(TASK);
 * ------------------------
 * This function takes two TASKs as parameters and compares them by taskNumber.
 *
-* Params: TASK
+* Params: TASK left TASK right
 *
 * Return: bool return true if both taskNUmbers are equal, return false if not
 */

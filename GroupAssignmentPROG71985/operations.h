@@ -6,7 +6,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by:
 *
-* This module contains all of the operatinos definitions to be called by the switch in switch.c
+* This module contains the declarations/prototypes of the operations functions to be called by the switch in switch.c
 */
 
 /*

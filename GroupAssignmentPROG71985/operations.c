@@ -11,7 +11,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by:
 *
-* This module contains all of the operatinos to be called by the switch in switch.c
+* This module contains all of the operations to be called by the switch in switch.c
 */
 
 bool addTaskOperation(pLIST taskManager) {

@@ -4,7 +4,14 @@
 #include <String.h>
 #include <stdbool.h>
 #include "task.h"
-
+/*PROG1985 F22 Section2 - Group Project - task.c
+*Author: Bryan Lejkowski
+*Main Contributor: Bryan Lejkowski
+*Contributed to by:
+*
+* This module contains the definitions and implementations of the functions related to tasks
+*
+*/
 TASK createTask(int taskNumber, char* taskInfo, int isComplete, int priority) {
 	TASK newTask;
 
@@ -47,6 +54,6 @@ void printTask(TASK task) {
 	else
 		priorityString = "High";
 	
-	printf("Task Number: %d\nTask Info: %s\nTask Complete: %s\nTask Priority: %s\n", task.taskNumber, task.taskInfo, completeString, priorityString);
+	printf("Task Number: %d\nTask Info: %s\nTask Complete: %s\nTask Priority: %s\n\n", task.taskNumber, task.taskInfo, completeString, priorityString);
 }
 

@@ -6,7 +6,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by:
 *
-* This module contains all of the taskManager declaritions and function definitions/prototypes to be utilized.
+* This module contains all of the taskManager declaritions/prototypes to be utilized.
 */
 
 typedef struct taskManager {
@@ -19,7 +19,7 @@ typedef struct taskManager {
 *
 * Params: void
 *
-* Return: pLIST
+* Return: pLIST createdList
 */
 pLIST createList();
 
@@ -45,12 +45,53 @@ bool addTask(pLIST, TASK);
 */
 bool deleteTaskByNumber(pLIST, int);
 
-
+/*
+* Function: removeTask()
+* ------------------------
+* This function removes a task from the task manager
+*
+* Params: pLIST taskManager TASK taskToBeRemoved
+*
+* Return: void
+*/
 void removeTask(pLIST, TASK);
 
+/*
+* Function: Display()
+* ------------------------
+* This function prints the current tasks stored
+*
+* Params: LIST taskManager
+* Return: void
+*/
 void Display(LIST);
 
+/*
+* Function: disposeList()
+* ------------------------
+* This function disposes the taskManager/list and frees the memory used by it.
+*
+* Params: pLIST taskManager
+* Return: void
+*/
 void disposeList(pLIST);
 
+/*
+* Function: getNumberOfTasks()
+* ------------------------
+* This function returns a count of how many tasks are in the taskManager at the moment.
+*
+* Params: pLIST taskManager
+* Return: int numberOfTasks
+*/
 int getNumberOfTasks(pLIST);
-pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber);
+
+/*
+* Function: findTaskByNumber()
+* ------------------------
+* This function finds and returns a task from the task manager 
+*
+* Params: pLIST taskManager int taskNumber
+* Return: pLISTNODE foundTask
+*/
+pLISTNODE findTaskByNumber(pLIST, int);

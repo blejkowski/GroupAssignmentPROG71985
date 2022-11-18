@@ -11,7 +11,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by: 
 * 
-* This module runs/loops through the main program
+* This module contains the functions that print the menus to the screen as well as handles user inputs
 *
 */
 

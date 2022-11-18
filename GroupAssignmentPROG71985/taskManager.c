@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "node.h"
 #include "taskManager.h"
+/*PROG1985 F22 Section2 - Group Project - taskManager.c
+*Author: Bryan Lejkowski
+*Main Contributor: Bryan Lejkowski
+*Contributed to by:
+*
+* This module contains the definitions and implementations of the functions related to the taskManager/list
+*
+*/
 
 pLIST createList() {
 	pLIST newlist = { 0 };
@@ -24,6 +32,7 @@ bool addTask(pLIST thisList, TASK task) {
 	}
 	return true;
 }
+
 //this function i need to add pushing back the task numbers
 void removeTask(pLIST thisList, TASK task) {
 	pLISTNODE currentNode = thisList->list;
@@ -46,6 +55,7 @@ void removeTask(pLIST thisList, TASK task) {
 
 	setNextNode(previousNode, getNextNode(currentNode));
 	disposeNode(currentNode);
+	return;
 }
 
 void Display(LIST thisList) {
@@ -95,7 +105,7 @@ pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber) {
 	else {
 		pLISTNODE currentNode = thisList->list;
 		do {
-			if (thisList->list->task.taskNumber, taskNumber) {
+			if (thisList->list->task.taskNumber == taskNumber) {
 				pLISTNODE taskNode = thisList->list;
 				return taskNode;
 			}
@@ -107,20 +117,18 @@ pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber) {
 //delete task by id
 bool deleteTaskByNumber(pLIST thisList, int taskNumber) {
 	if (thisList->list == NULL) {
-		return 0;
+		return false;
 	}
 	else {
 		pLISTNODE currentNode = thisList->list;
-		while (currentNode != NULL){
-			if (thisList->list->task.taskNumber == taskNumber) {
-				pLISTNODE taskNodeToDelete = findTaskByNumber(thisList, taskNumber);
-			/*	TASK taskToRemove = findTaskByNumber(taskNumber);
-				removeTask(thisList, taskToRemove);*/
-				removeTask(thisList, taskNodeToDelete->task);
+		do{
+			printf("\ntask in list: %d tasknumber given: %d\n", currentNode->task.taskNumber, taskNumber);
+			if (currentNode->task.taskNumber == taskNumber) {
+				removeTask(thisList, currentNode->task);
 				return true;
 			}
 			currentNode = getNextNode(currentNode);
-		}
+		} while (currentNode != NULL);
 
 		return false;
 	}

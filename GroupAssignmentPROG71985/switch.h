@@ -3,7 +3,7 @@
 *Main Contributor: Bryan Lejkowski
 *Contributed to by:
 *
-* This module contains all of the switch definitions to be called by the main function in main.c
+* This module contains declarations/prototypes of the switch functions to be called by the main function in main.c
 */
 
 /*
@@ -11,7 +11,7 @@
 * ------------------------
 * This function prints gets the input from the user of which operation is to be performed, and then executes it.
 *
-* Params: pLIST
+* Params: pLIST taskManager
 * Return: void
 */
 void selectionFunction(pLIST);
