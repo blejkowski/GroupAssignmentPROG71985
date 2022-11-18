@@ -14,7 +14,9 @@
 * Params: pLIST taskManager
 * Return: void
 */
-void selectionFunction(pLIST);
+#include <stdbool.h>
+#include "taskManager.h"
+bool selectionFunction(pLIST, bool*);
 
 /*
 * Function: printMenu()

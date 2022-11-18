@@ -34,7 +34,7 @@ void printMenu(void) {
 	printf("\n6) Quit \n");
 }
 
-void selectionFunction(pLIST taskManager) {
+bool selectionFunction(pLIST taskManager, bool* runPtr) {
 	int option;
 	scanf(" %d", &option);
 
@@ -61,7 +61,10 @@ void selectionFunction(pLIST taskManager) {
 		Display(*taskManager);
 		break;
 	default:
-		exit(1);
+		*runPtr = false;
+		//exit(1);
 		break;
 	}
+
+	return *runPtr;
 }

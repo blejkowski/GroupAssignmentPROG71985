@@ -18,8 +18,8 @@ int main(void) {
 	printWelcome(); 
 	bool run = true;
 	pLIST taskManager = createList(); //create a heap allocated list structure that acts as a "task manager"
-	while (run) {
+	do {
 		printMenu();
-		selectionFunction(&taskManager);
-	}
+		run = selectionFunction(&taskManager, &run);
+	} while (run == true);
 }
