@@ -28,3 +28,23 @@ bool addTaskOperation(pLIST);
 * Return: bool Successful addition returns true, unsuccessful addition returns false
 */
 bool deleteTaskOperation(pLIST);
+
+/*
+* Function: updateTaskOperation()
+* ------------------------
+* This function takes in a pointer to the list/task manager updates a task in it.
+*
+* Params: pLIST taskManager
+* Return: bool Successful addition returns true, unsuccessful addition returns false
+*/
+bool updateTaskOperation(pLIST);
+
+/*
+* Function: displaySingleTaskOperation()
+* ------------------------
+* This function takes in a pointer to the list/task manager prints a task found by ID.
+*
+* Params: pLIST taskManager
+* Return: bool Successful addition returns true, unsuccessful addition returns false
+*/
+bool displaySingleTaskOperation(pLIST);

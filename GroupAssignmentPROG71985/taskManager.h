@@ -95,3 +95,13 @@ int getNumberOfTasks(pLIST);
 * Return: pLISTNODE foundTask
 */
 pLISTNODE findTaskByNumber(pLIST, int);
+
+/*
+* Function: updateTask()
+* ------------------------
+* This function finds a task by ID and replaces it in the list with a new task.
+*
+* Params: pLIST taskManager TASK newTASK
+* Return: boolean result
+*/
+bool updateTask(pLIST, TASK);

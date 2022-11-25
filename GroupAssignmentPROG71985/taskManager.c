@@ -104,13 +104,14 @@ pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber) {
 	}
 	else {
 		pLISTNODE currentNode = thisList->list;
+		
 		do {
-			if (thisList->list->task.taskNumber == taskNumber) {
-				pLISTNODE taskNode = thisList->list;
-				return taskNode;
+			if (currentNode->task.taskNumber == taskNumber) {
+				return currentNode;
 			}
 			currentNode = getNextNode(currentNode);
 		} while (currentNode != NULL);
+		return NULL;
 	}
 }
 
@@ -122,7 +123,7 @@ bool deleteTaskByNumber(pLIST thisList, int taskNumber) {
 	else {
 		pLISTNODE currentNode = thisList->list;
 		do{
-			printf("\ntask in list: %d tasknumber given: %d\n", currentNode->task.taskNumber, taskNumber);
+			//debug  print printf("\ntask in list: %d tasknumber given: %d\n", currentNode->task.taskNumber, taskNumber);
 			if (currentNode->task.taskNumber == taskNumber) {
 				removeTask(thisList, currentNode->task);
 				return true;
@@ -131,5 +132,16 @@ bool deleteTaskByNumber(pLIST thisList, int taskNumber) {
 		} while (currentNode != NULL);
 
 		return false;
+	}
+}
+
+bool updateTask(pLIST thisList, TASK newTask) {
+	if (thisList->list == NULL) {
+		return false;
+	}
+	else {
+		pLISTNODE nodeToUpdate = findTaskByNumber(thisList, newTask.taskNumber);
+		nodeToUpdate->task = newTask;
+		return true;
 	}
 }
