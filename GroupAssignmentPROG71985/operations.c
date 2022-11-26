@@ -19,10 +19,9 @@ bool addTaskOperation(pLIST taskManager) {
 	printf("Enter the task: ");
 	char taskString[MAX_LENGTH];
 	scanf(" %s", taskString);
-	
 	printf("What is the priority of this task?\nHigh - 3\nMedium - 2\nLow - 1\n");
 	int priority = 0;
-	scanf( "%d", &priority);
+	scanf(" %d", &priority);
 
 	//get number of tasks
 	int numberOfTasks = getNumberOfTasks(taskManager);
@@ -48,9 +47,10 @@ bool updateTaskOperation(pLIST taskManager) {
 	printf("Enter ID of task to update: \n");
 	int taskIdToUpdate;
 	scanf(" %d", &taskIdToUpdate);
+
 	printf("Enter the task: \n");
 	char taskString[MAX_LENGTH];
-	scanf(" %s", taskString);
+	fgets(taskString, MAX_LENGTH, stdin);
 
 	printf("Enter 1 if task has been completed. Enter 0 if it has not been completed. \n");
 	int completion = 0;
@@ -78,5 +78,8 @@ bool displaySingleTaskOperation(pLIST taskManager) {
 		printTask(taskToDisplay->task);
 		return true;
 	}
+}
 
+bool SortTasksByPriorityOperation(pLIST taskManager) {
+	SortTasksByPriority(taskManager);
 }

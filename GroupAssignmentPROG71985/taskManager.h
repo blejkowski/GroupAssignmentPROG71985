@@ -105,3 +105,13 @@ pLISTNODE findTaskByNumber(pLIST, int);
 * Return: boolean result
 */
 bool updateTask(pLIST, TASK);
+
+/*
+* Function: SortTasksByPriority()
+* ------------------------
+* This function sorts the list of task by priority. If the list has been sorted it will return true, if the list has not been sorted/is empty it will return false;
+*
+* Params: pLIST taskManager 
+* Return: boolean result
+*/
+bool SortTasksByPriority(pLIST);

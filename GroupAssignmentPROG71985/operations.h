@@ -48,3 +48,13 @@ bool updateTaskOperation(pLIST);
 * Return: bool Successful addition returns true, unsuccessful addition returns false
 */
 bool displaySingleTaskOperation(pLIST);
+
+/*
+* Function: SortTasksByPriorityOperation()
+* ------------------------
+* This function takes in a pointer to the list/task manager and then sorts and re-numbers the task according to the highest priority.
+*
+* Params: pLIST taskManager
+* Return: bool Successful addition returns true, unsuccessful addition returns false
+*/
+bool SortTasksByPriorityOperation(pLIST taskManager);

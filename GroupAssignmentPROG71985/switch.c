@@ -31,20 +31,20 @@ void printMenu(void) {
 	printf("\n3) Update a task.");
 	printf("\n4) Display a single task.");
 	printf("\n5) Display all tasks.");
-	printf("\n6) Display tasks by priority.");
+	printf("\n6) Sort tasks by priority.");
 	printf("\nAny other input to quit.\n");
 }
 
 bool selectionFunction(pLIST taskManager, bool* runPtr) {
+	
 	int option;
 	scanf(" %d", &option);
-
 	switch (option) {
-	case 1: 
+	case 1:
 		if (addTaskOperation(taskManager))
-			printf("Task has been added.\n");
+			printf("Task has been added.");
 		else
-			fprintf(stderr, "There has been a problem adding that task.\n");
+			fprintf(stderr, "There has been a problem adding that task.");
 		break;
 	case 2:
 		if (deleteTaskOperation(taskManager))
@@ -62,11 +62,13 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 		if (!displaySingleTaskOperation(taskManager))
 			fprintf(stderr, "Task cannot be printed");	
 		break;
-	case 5: 
+	case 5:
 		Display(*taskManager);
 		break;
-	case 6: 
-		//list task by priority
+	case '6':
+		SortTasksByPriorityOperation(taskManager);
+		printf("DisplayList: ");
+		Display(*taskManager);
 		break;
 	default:
 		*runPtr = false;
@@ -75,4 +77,4 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 	}
 
 	return *runPtr;
-}
+ }

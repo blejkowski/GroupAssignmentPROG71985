@@ -145,3 +145,38 @@ bool updateTask(pLIST thisList, TASK newTask) {
 		return true;
 	}
 }
+
+
+bool SortTasksByPriority(pLIST thisList) {
+	bool sorted = false;
+	if (thisList->list == NULL) {
+		return false;
+	}
+	else {
+		pLISTNODE currentNode = thisList->list;
+		pLISTNODE nextNode;
+		TASK temp;
+		while (currentNode != NULL) {
+			nextNode = currentNode->next;
+			while (nextNode != NULL) {
+				if (currentNode->task.priority < nextNode->task.priority) {
+					temp = currentNode->task;
+					currentNode->task = nextNode->task;
+					nextNode->task = temp;
+				}
+				nextNode = getNextNode(nextNode);
+			}
+			currentNode = getNextNode(currentNode);
+		}
+		
+		//iterate through list and change task numbers
+		currentNode = thisList->list;
+		int index = 1;
+		while (currentNode != NULL) {
+			currentNode->task.taskNumber = index;
+			index++;
+			currentNode = getNextNode(currentNode);
+		}
+		return true;
+	}
+}
