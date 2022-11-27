@@ -9,19 +9,29 @@
 /*PROG1985 F22 Section2 - Group Project - operations.c
 *Author: Bryan Lejkowski
 *Main Contributor: Bryan Lejkowski
-*Contributed to by:
+*Contributed to by: Salah Salame
 *
 * This module contains all of the operations to be called by the switch in switch.c
+* Replaced scanf with fgets for strings.
+* 
 */
 
 bool addTaskOperation(pLIST taskManager) {
 	//Get the input from the user and store
 	printf("Enter the task: ");
 	char taskString[MAX_LENGTH];
-	scanf(" %s", taskString);
+	fflush(stdin);
+	fgets(taskString, MAX_LENGTH, stdin);
+	//scanf(" %s", taskString);
 	printf("What is the priority of this task?\nHigh - 3\nMedium - 2\nLow - 1\n");
 	int priority = 0;
-	scanf(" %d", &priority);
+
+	scanf_s("%d", &priority);
+	// Preventing unexpected behaviour by checking for input.
+	while (priority < 1 || priority > 3) {
+		puts("Not a valid input. Please, try again.");
+		scanf_s("%d", &priority);
+	}
 
 	//get number of tasks
 	int numberOfTasks = getNumberOfTasks(taskManager);
@@ -37,7 +47,7 @@ bool deleteTaskOperation(pLIST taskManager) {
 	//get the number of the task the user will like to delte
 	printf("Enter the numbero of the task you wish to delete.\n");
 	int taskNumber;
-	scanf(" %d", &taskNumber);
+	scanf_s(" %d", &taskNumber);
 	//delete the task and return whether it was successful or not
 	return deleteTaskByNumber(taskManager, taskNumber);
 }
@@ -46,7 +56,7 @@ bool updateTaskOperation(pLIST taskManager) {
 	//Get the input from the user and store
 	printf("Enter ID of task to update: \n");
 	int taskIdToUpdate;
-	scanf(" %d", &taskIdToUpdate);
+	scanf_s(" %d", &taskIdToUpdate);
 
 	printf("Enter the task: \n");
 	char taskString[MAX_LENGTH];
@@ -54,11 +64,11 @@ bool updateTaskOperation(pLIST taskManager) {
 
 	printf("Enter 1 if task has been completed. Enter 0 if it has not been completed. \n");
 	int completion = 0;
-	scanf("%d", &completion);
+	scanf_s("%d", &completion);
 
 	printf("What is the priority of this task?\nHigh - 3\nMedium - 2\nLow - 1\n");
 	int priority = 0;
-	scanf("%d", &priority);
+	scanf_s("%d", &priority);
 
 	//create task
 	TASK newTask = createTask(taskIdToUpdate, taskString, completion, priority);
@@ -69,7 +79,7 @@ bool updateTaskOperation(pLIST taskManager) {
 bool displaySingleTaskOperation(pLIST taskManager) {
 	printf("Enter ID of task to display: \n");
 	int taskIdToDisplay;
-	scanf(" %d", &taskIdToDisplay);
+	scanf_s(" %d", &taskIdToDisplay);
 	pLISTNODE taskToDisplay = findTaskByNumber(taskManager, taskIdToDisplay);
 	
 	if (taskToDisplay == NULL)

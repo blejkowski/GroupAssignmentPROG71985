@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="File.c" />
     <ClCompile Include="node.c" />
     <ClCompile Include="operations.c" />
     <ClCompile Include="Source.c" />
@@ -135,6 +136,7 @@
     <ClCompile Include="taskManager.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="File.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="operations.h" />
     <ClInclude Include="switch.h" />
