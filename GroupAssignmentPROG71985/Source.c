@@ -18,7 +18,7 @@
 * 
 */
 int main(int argc, char* argv[]) {
-	FILE* newFile = fileHandling(argv[1]);
+	checkFile(argv[1]);
 	// If this function fails, or if the count is otherwise not what it should be, the program exits.
 	if (argc != 2) {
 		printf("Usage: %s filename\n", argv[0]);
@@ -29,6 +29,10 @@ int main(int argc, char* argv[]) {
 	pLIST taskManager = createList(); //create a heap allocated list structure that acts as a "task manager"
 	do {
 		printMenu();
-		run = selectionFunction(&taskManager, &run);
+		run = selectionFunction(&taskManager, &run, argv[1]);
 	} while (run == true);
+
+	
+
+	return 0;
 }

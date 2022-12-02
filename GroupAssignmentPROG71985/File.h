@@ -1,4 +1,6 @@
 #pragma once
+#include "node.h"
+#include "taskManager.h"
 
 /*PROG1985 F22 Section2 - Group Project - operations.c
 *Author: Salah Salame
@@ -11,4 +13,5 @@
 
 #include <stdio.h>
 
-FILE* fileHandling(char*);
+void checkFile(char*);
+void saveToFile(pLIST, char*);

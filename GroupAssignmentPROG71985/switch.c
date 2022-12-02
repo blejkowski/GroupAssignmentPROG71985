@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include "taskManager.h"
 #include "task.h"
+#include "File.h"
 #include "operations.h"
 /*PROG1985 F22 Section2 - Group Project - switch.c
 *Author: Bryan Lejkowski
@@ -38,7 +39,7 @@ void printMenu(void) {
 	printf("\nAny other input to quit.\n");
 }
 
-bool selectionFunction(pLIST taskManager, bool* runPtr) {
+bool selectionFunction(pLIST taskManager, bool* runPtr, char* argv) {
 	
 	int option;
 	char buf[NUM_SIZE_BYTES];
@@ -87,6 +88,7 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 		Display(*taskManager);
 		break;
 	default:
+		saveToFile(taskManager, argv);
 		*runPtr = false;
 		//exit(1);
 		break;

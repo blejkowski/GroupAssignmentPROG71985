@@ -16,7 +16,7 @@
 */
 #include <stdbool.h>
 #include "taskManager.h"
-bool selectionFunction(pLIST, bool*);
+bool selectionFunction(pLIST, bool*, char*);
 
 /*
 * Function: printMenu()

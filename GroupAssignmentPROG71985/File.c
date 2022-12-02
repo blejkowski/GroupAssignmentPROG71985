@@ -9,16 +9,32 @@
 */
 
 #include "File.h"
+#include "taskManager.h"
+#include "node.h"
 
-FILE* fileHandling(char* argv) {
+void checkFile(char* argv) {
 	FILE* data;
-	if ((data = fopen(argv, "r")) == NULL) {
+	if ((data = fopen(argv, "r")) == NULL)
+	{
 		puts("File does not exist. Creating new file...");
 		data = fopen(argv, "w");
-		return data;
 	}
-	
-	puts("File loaded.");
-	return data;
-	
+	puts("File created.");
+}
+
+void saveToFile(pLIST list, char* argv)
+{
+	FILE* dataFile = fopen(argv, "w");
+	pLISTNODE currentNode = list->list;
+	while (currentNode != NULL)
+	{
+		fprintf(dataFile, "%d\n", currentNode->task.isComplete);
+		fprintf(dataFile, "%d\n", currentNode->task.priority);
+		fprintf(dataFile, "%s", currentNode->task.taskInfo);
+		fprintf(dataFile, "%d\n", currentNode->task.taskNumber);
+
+		currentNode = getNextNode(currentNode);
+	}
+
+	fclose(dataFile);
 }
