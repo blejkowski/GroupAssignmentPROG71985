@@ -93,3 +93,15 @@ bool displaySingleTaskOperation(pLIST taskManager) {
 bool SortTasksByPriorityOperation(pLIST taskManager) {
 	SortTasksByPriority(taskManager);
 }
+
+bool DisplayRangeOperation(pLIST taskManager)
+{
+
+	printf("enter lower-bound and higher-bound task seperated by a space");
+
+	int lowerbound, higherbound;
+
+	scanf_s(" %d %d", &lowerbound, &higherbound);
+
+	return DisplayRangeOfTasks( taskManager, lowerbound, higherbound);
+}

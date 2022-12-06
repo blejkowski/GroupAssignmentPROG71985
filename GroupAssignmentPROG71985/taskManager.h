@@ -115,3 +115,15 @@ bool updateTask(pLIST, TASK);
 * Return: boolean result
 */
 bool SortTasksByPriority(pLIST);
+
+/*
+	Function: DisplayRangeofTasks
+	-----------------------------
+	This function will display the range of tasks that the user has created
+
+	Params: pLIST taskNumber
+	Return: boolean result
+
+*/
+
+bool DisplayRangeOfTasks(pLIST thisList, int mintask, int maxtask);

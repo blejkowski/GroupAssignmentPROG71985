@@ -106,10 +106,12 @@ pLISTNODE findTaskByNumber(pLIST thisList, int taskNumber) {
 		pLISTNODE currentNode = thisList->list;
 		
 		do {
+			//if the current node equals one of the task numbers the new value will be task that matches that number is the current nodes new value
 			if (currentNode->task.taskNumber == taskNumber) {
 				return currentNode;
 			}
 			currentNode = getNextNode(currentNode);
+			//this while loop only works if the current node does not equal null
 		} while (currentNode != NULL);
 		return NULL;
 	}
@@ -139,6 +141,7 @@ bool updateTask(pLIST thisList, TASK newTask) {
 	if (thisList->list == NULL) {
 		return false;
 	}
+	//finds the task number the the user has inputted and then gets the user to replace that task with another one
 	else {
 		pLISTNODE nodeToUpdate = findTaskByNumber(thisList, newTask.taskNumber);
 		nodeToUpdate->task = newTask;
@@ -149,6 +152,7 @@ bool updateTask(pLIST thisList, TASK newTask) {
 
 bool SortTasksByPriority(pLIST thisList) {
 	bool sorted = false;
+	//if there are no tasks the return value is fale
 	if (thisList->list == NULL) {
 		return false;
 	}
@@ -156,8 +160,11 @@ bool SortTasksByPriority(pLIST thisList) {
 		pLISTNODE currentNode = thisList->list;
 		pLISTNODE nextNode;
 		TASK temp;
+		//creating a while loop for finding where the current node should be
 		while (currentNode != NULL) {
+			//the next node is equal to the current node
 			nextNode = currentNode->next;
+			//main loop that sorts the priority levels of the tasks 
 			while (nextNode != NULL) {
 				if (currentNode->task.priority < nextNode->task.priority) {
 					temp = currentNode->task;
@@ -179,4 +186,38 @@ bool SortTasksByPriority(pLIST thisList) {
 		}
 		return true;
 	}
+}
+
+//boolean
+bool DisplayRangeOfTasks(pLIST thisList, int mintask, int maxtask)
+{
+	//get min task node
+	
+
+	//if list is empty return false
+	if (thisList->list == NULL) {
+		return false;
+
+
+	}
+
+	//otherwise find the range od the two tasks inputed
+	else {
+		//creates a linked list called node which is used as the function for findTaskByNumber
+		pLISTNODE node = findTaskByNumber(thisList, mintask);
+		do {
+			//
+			printTask(node->task);
+			//keeps going until it reaches NULL and then the code breaks
+			if (getNextNode(node) == NULL)
+				break;
+			node = getNextNode(node);
+			//the while loop constantly loops the code until
+		} while (node->task.taskNumber >= maxtask);
+
+		//returns whatever the working value was
+		return true;
+	}
+	
+
 }

@@ -36,7 +36,9 @@ void printMenu(void) {
 	printf("\n4) Display a single task.");
 	printf("\n5) Display all tasks.");
 	printf("\n6) Sort tasks by priority.");
+	printf("\n7) Display range of tasks");
 	printf("\nAny other input to quit.\n");
+	
 }
 
 bool selectionFunction(pLIST taskManager, bool* runPtr, char* argv) {
@@ -82,10 +84,14 @@ bool selectionFunction(pLIST taskManager, bool* runPtr, char* argv) {
 	case 5:
 		Display(*taskManager);
 		break;
-	case '6':
+	case 6:
 		SortTasksByPriorityOperation(taskManager);
 		printf("DisplayList: ");
 		Display(*taskManager);
+		break;
+	case 7:
+		if (!DisplayRangeOperation(taskManager))
+			fprintf(stderr, "Range could not be displayed");
 		break;
 	default:
 		saveToFile(taskManager, argv);
