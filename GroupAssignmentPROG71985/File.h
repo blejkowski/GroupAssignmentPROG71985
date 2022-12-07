@@ -13,5 +13,6 @@
 
 #include <stdio.h>
 
-void checkFile(char*);
-void saveToFile(pLIST, char*);
+void checkFile();
+void saveToFile(pLIST);
+void readFromFile(pLIST);

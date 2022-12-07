@@ -1,6 +1,7 @@
 #pragma once
 #include <string.h>
 #include <stdbool.h>
+#include "StringUtils.h"
 #define MAX_LENGTH 128
 
 /*PROG1985 F22 Section2 - Group Project - task.h
