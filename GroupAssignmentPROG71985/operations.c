@@ -116,3 +116,18 @@ void DisplayIncompleteTasks(pLIST IncompleteList)
 		} while (currentNode != NULL);
 	}
 }
+
+void DisplayCompleteTasks(pLIST List)
+{
+	if (List->list == NULL)
+		return;
+	else {
+		pLISTNODE currentNode = List->list;
+		do {
+			if (currentNode->task.isComplete == 1)
+				printTask(currentNode->task);
+
+			currentNode = getNextNode(currentNode);
+		} while (currentNode != NULL);
+	}
+}

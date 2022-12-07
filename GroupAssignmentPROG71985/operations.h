@@ -69,7 +69,6 @@ bool SortTasksByPriorityOperation(pLIST taskManager);
  Params: pLIST taskManager
  Return: bool Successful addition returns true, unsuccessful addition returns false
 
-
 */
 
 
@@ -87,3 +86,15 @@ bool DisplayRangeOperation(pLIST taskManager);
 
 */
 void DisplayIncompleteTasks(pLIST IncompleteList);
+
+/*
+
+    Function: DisplayCompleteTasks
+    --------------------------------
+    This function will display the range of tasks that the user has completed.
+
+    Params: pList List.
+    Return: void.
+
+*/
+void DisplayCompleteTasks(pLIST List);
