@@ -9,7 +9,10 @@ We decided to develop a to-do list app / task manager. This application uses a l
 The division of labor organized by group member.
 
 ## Aidan
-- 
+- Added a function that displays the range of the tasks the user has made
+- made a bonus function that displays all of the tasks that the user has not completed
+- Helped refactor one of the switch cases from a char to an integer
+- Made Comments on the code
 
 ## Salah
 -
