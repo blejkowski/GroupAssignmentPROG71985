@@ -75,3 +75,15 @@ bool SortTasksByPriorityOperation(pLIST taskManager);
 
 
 bool DisplayRangeOperation(pLIST taskManager);
+
+/*
+
+    Function: DisplayIncompleteTasks
+    --------------------------------
+    This function will display the range of tasks that the user has not completed yet
+
+    Params: pList IncompleteList
+    Return: void
+
+*/
+void DisplayIncompleteTasks(pLIST IncompleteList);

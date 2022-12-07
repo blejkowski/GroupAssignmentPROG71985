@@ -56,10 +56,7 @@ bool updateTaskOperation(pLIST taskManager) {
 	printf("Enter ID of task to update: \n");
 	int taskIdToUpdate;
 	scanf_s(" %d", &taskIdToUpdate);
-
-	printf("Enter the task: \n");
-	char taskString[MAX_LENGTH];
-	fgets(taskString, MAX_LENGTH, stdin);
+	pLISTNODE nodeToUpdate = findTaskByNumber(taskManager, taskIdToUpdate);
 
 	printf("Enter 1 if task has been completed. Enter 0 if it has not been completed. \n");
 	int completion = 0;
@@ -70,7 +67,7 @@ bool updateTaskOperation(pLIST taskManager) {
 	scanf_s("%d", &priority);
 
 	//create task
-	TASK newTask = createTask(taskIdToUpdate, taskString, completion, priority);
+	TASK newTask = createTask(taskIdToUpdate, nodeToUpdate->task.taskInfo, completion, priority);
 
 	return updateTask(taskManager, newTask);
 }
@@ -103,4 +100,19 @@ bool DisplayRangeOperation(pLIST taskManager)
 	scanf_s(" %d %d", &lowerbound, &higherbound);
 
 	return DisplayRangeOfTasks( taskManager, lowerbound, higherbound);
+}
+
+void DisplayIncompleteTasks(pLIST IncompleteList)
+{
+	if (IncompleteList->list == NULL)
+		return;
+	else {
+		pLISTNODE currentNode = IncompleteList->list;
+		do {
+			if (currentNode->task.isComplete == 0)
+				printTask(currentNode->task);
+
+			currentNode = getNextNode(currentNode);
+		} while (currentNode != NULL);
+	}
 }

@@ -37,6 +37,7 @@ void printMenu(void) {
 	printf("\n5) Display all tasks.");
 	printf("\n6) Sort tasks by priority.");
 	printf("\n7) Display range of tasks");
+	printf("\n8) Display incomplete Tasks");
 	printf("\nAny other input to quit.\n");
 	
 }
@@ -93,6 +94,9 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 	case 7:
 		if (!DisplayRangeOperation(taskManager))
 			fprintf(stderr, "Range could not be displayed");
+		break;
+	case 8:
+		DisplayIncompleteTasks(taskManager);
 		break;
 	default:
 
