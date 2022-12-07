@@ -66,7 +66,7 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 		if (addTaskOperation(taskManager))
 			printf("Task has been added.");
 		else
-			fprintf(stderr, "There has been a problem adding that task.");
+			fprintf(stderr, "There has been a problem adding that task.\n");
 		break;
 	case 2:
 		if (deleteTaskOperation(taskManager))
@@ -76,13 +76,13 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 		break;
 	case 3:
 		if (updateTaskOperation(taskManager))
-			printf("Task has been updated.");
+			printf("Task has been updated.\n");
 		else
 			fprintf(stderr, "Could not update the task");
 		break;
 	case 4:
 		if (!displaySingleTaskOperation(taskManager))
-			fprintf(stderr, "Task cannot be printed");	
+			fprintf(stderr, "Task cannot be printed\n");	
 		break;
 	case 5:
 		Display(*taskManager);
@@ -94,7 +94,7 @@ bool selectionFunction(pLIST taskManager, bool* runPtr) {
 		break;
 	case 7:
 		if (!DisplayRangeOperation(taskManager))
-			fprintf(stderr, "Range could not be displayed");
+			fprintf(stderr, "Range could not be displayed\n");
 		break;
 	case 8:
 		DisplayIncompleteTasks(taskManager);

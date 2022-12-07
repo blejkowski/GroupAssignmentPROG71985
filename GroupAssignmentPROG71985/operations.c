@@ -98,6 +98,10 @@ bool DisplayRangeOperation(pLIST taskManager)
 	int lowerbound, higherbound;
 
 	scanf_s(" %d %d", &lowerbound, &higherbound);
+	//gaurding for invalid range
+	if (higherbound > getNumberOfTasks(taskManager) || lowerbound < 1) {
+		return false;
+	}
 
 	return DisplayRangeOfTasks( taskManager, lowerbound, higherbound);
 }

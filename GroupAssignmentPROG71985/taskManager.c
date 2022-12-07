@@ -213,7 +213,7 @@ bool DisplayRangeOfTasks(pLIST thisList, int mintask, int maxtask)
 				break;
 			node = getNextNode(node);
 			//the while loop constantly loops the code until
-		} while (node->task.taskNumber >= maxtask);
+		} while (node->task.taskNumber <= maxtask);
 
 		//returns whatever the working value was
 		return true;
