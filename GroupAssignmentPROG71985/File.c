@@ -28,7 +28,7 @@ void checkFile() {
 
 void saveToFile(pLIST list)
 {
-	FILE* dataFile = fopen("Database.dat", "a");
+	FILE* dataFile = fopen("Database.dat", "w");
 	
 	pLISTNODE currentNode = list->list;
 
@@ -39,10 +39,10 @@ void saveToFile(pLIST list)
 	}
 	while (currentNode != NULL)
 	{
+		fprintf(dataFile, "%d\n", currentNode->task.taskNumber);
+		fprintf(dataFile, "%s\n", currentNode->task.taskInfo);
 		fprintf(dataFile, "%d\n", currentNode->task.isComplete);
 		fprintf(dataFile, "%d\n", currentNode->task.priority);
-		fprintf(dataFile, "%s\n", currentNode->task.taskInfo);
-		fprintf(dataFile, "%d\n", currentNode->task.taskNumber);
 
 		currentNode = getNextNode(currentNode);
 	}
@@ -69,25 +69,25 @@ void readFromFile(pLIST list)
 
 	// Variables to be replaced with file info after reading from file.
 
-	pLISTNODE currentNode = NULL;
 
 	if (dataFile != EOF)
-	{
-		while (dataFile != EOF)
+	{ //number info complete prio
+		while (fgets(tempNumber, MAX_LENGTH, dataFile)!=NULL)
 		{
+
+			//fgets(tempNumber, MAX_LENGTH, dataFile);
+			convertedTmpNum = atoi(tempNumber);
+
+			fgets(tempDescription, MAX_LENGTH, dataFile);
+			CleanNewLineFromString(tempDescription);
 			fgets(tempStatus, MAX_LENGTH, dataFile);
 			convertedTmpStatus = atoi(tempStatus);
 
 			fgets(tempPriority, MAX_LENGTH, dataFile);
 			convertedTmpPriority = atoi(tempPriority);
-			fgets(tempDescription, MAX_LENGTH, dataFile);
-
-			fgets(tempNumber, MAX_LENGTH, dataFile);
-			convertedTmpNum = atoi(tempNumber);
-
+			
 			TASK newTask = createTask(convertedTmpNum, tempDescription, convertedTmpStatus, convertedTmpPriority);
 			addTask(list, newTask);
-			list = getNextNode(currentNode);
 		}
 	}	
 	fclose(dataFile);
