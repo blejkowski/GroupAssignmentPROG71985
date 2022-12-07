@@ -15,7 +15,12 @@ The division of labor organized by group member.
 - Made Comments on the code
 
 ## Salah
--
+- Implemented File I/O (reading, and writing to the file).
+- Implemented function to display completed tasks.
+- Fixed general bugs (implemented fgets, fixed buffer overflow errors, etc.).
+- Added validation check for priority number (prev it allowed priorities not listed).
+- Refactored the while to do... while in main source file.
+- Refactored from command line arguments to hard-coded data files for File I/O.
 ## Bryan
 - Created overall structure of program, main loop, switch case, operations.
 - Implemented the Linked List Data Structure (taskManager.h/c and node.h/c)
