@@ -11,7 +11,7 @@
 /*PROG1985 F22 Section2 - Group Project - switch.c
 *Author: Bryan Lejkowski
 *Main Contributor: Bryan Lejkowski
-*Contributed to by: Salah Salame
+*Contributed to by: Salah Salame, Aidan Nickerson
 * 
 * This module contains the functions that print the menus to the screen as well as handles user inputs
 * 
