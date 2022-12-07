@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "operations.h"
 #include "task.h"
-#include "StringUtils.h"
+
 /*PROG1985 F22 Section2 - Group Project - operations.c
 *Author: Bryan Lejkowski
 *Main Contributor: Bryan Lejkowski
@@ -57,7 +57,10 @@ bool updateTaskOperation(pLIST taskManager) {
 	int taskIdToUpdate;
 	scanf_s(" %d", &taskIdToUpdate);
 
-	pLISTNODE nodeToUpdate = findTaskByNumber(taskManager, taskIdToUpdate);
+	printf("Enter the task: \n");
+	char taskString[MAX_LENGTH];
+	fgets(taskString, MAX_LENGTH, stdin);
+
 	printf("Enter 1 if task has been completed. Enter 0 if it has not been completed. \n");
 	int completion = 0;
 	scanf_s("%d", &completion);
@@ -67,7 +70,7 @@ bool updateTaskOperation(pLIST taskManager) {
 	scanf_s("%d", &priority);
 
 	//create task
-	TASK newTask = createTask(taskIdToUpdate, nodeToUpdate->task.taskInfo, completion, priority);
+	TASK newTask = createTask(taskIdToUpdate, taskString, completion, priority);
 
 	return updateTask(taskManager, newTask);
 }
