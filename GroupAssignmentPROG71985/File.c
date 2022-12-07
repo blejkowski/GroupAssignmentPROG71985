@@ -16,17 +16,19 @@
 
 void checkFile() {
 	FILE* data;
-	if ((data = fopen("Database.dat", "rb")) == NULL)
+	if ((data = fopen("Database.dat", "r")) == NULL)
 	{
 		puts("File does not exist. Creating new file...");
-		data = fopen("Database.dat", "wb");
+		data = fopen("Database.dat", "w");
 	}
 	puts("File created.");
+
+	fclose(data);
 }
 
 void saveToFile(pLIST list)
 {
-	FILE* dataFile = fopen("Database.dat", "wb");
+	FILE* dataFile = fopen("Database.dat", "a");
 	
 	pLISTNODE currentNode = list->list;
 
@@ -51,7 +53,7 @@ void readFromFile(pLIST list)
 {
 
 	FILE* dataFile;
-	if ((dataFile = fopen("Database.dat", "w")) == NULL)
+	if ((dataFile = fopen("Database.dat", "r")) == NULL)
 	{
 		printf(stderr, "Cannot open the file.");
 		exit(EXIT_FAILURE);
@@ -67,22 +69,26 @@ void readFromFile(pLIST list)
 
 	// Variables to be replaced with file info after reading from file.
 
-	pLISTNODE currentNode = list->list;
-	while(fgets(tempStatus, MAX_LENGTH, dataFile)!=NULL)
+	pLISTNODE currentNode = NULL;
+
+	if (dataFile != EOF)
 	{
-		fgets(tempStatus, MAX_LENGTH, dataFile);
-		convertedTmpStatus = atoi(tempStatus);
+		while (dataFile != EOF)
+		{
+			fgets(tempStatus, MAX_LENGTH, dataFile);
+			convertedTmpStatus = atoi(tempStatus);
 
-		fgets(tempPriority, MAX_LENGTH, dataFile);
-		convertedTmpPriority = atoi(tempPriority);
-		fgets(tempDescription, MAX_LENGTH, dataFile);
+			fgets(tempPriority, MAX_LENGTH, dataFile);
+			convertedTmpPriority = atoi(tempPriority);
+			fgets(tempDescription, MAX_LENGTH, dataFile);
 
-		fgets(tempNumber, MAX_LENGTH, dataFile);
-		convertedTmpNum = atoi(tempNumber);
+			fgets(tempNumber, MAX_LENGTH, dataFile);
+			convertedTmpNum = atoi(tempNumber);
 
-		TASK newTask = createTask(convertedTmpNum, tempDescription, convertedTmpStatus, convertedTmpPriority);
-		addTask(list, newTask);
-		currentNode = getNextNode(currentNode);
-	}
+			TASK newTask = createTask(convertedTmpNum, tempDescription, convertedTmpStatus, convertedTmpPriority);
+			addTask(list, newTask);
+			list = getNextNode(currentNode);
+		}
+	}	
 	fclose(dataFile);
 }

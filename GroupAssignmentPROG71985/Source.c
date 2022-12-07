@@ -22,7 +22,7 @@ int main() {
 	printWelcome();
 	bool run = true;
 	pLIST taskManager = createList(); //create a heap allocated list structure that acts as a "task manager"
-	//readFromFile(&taskManager);
+	readFromFile(&taskManager);
 	do {
 		printMenu();
 		run = selectionFunction(&taskManager, &run);
