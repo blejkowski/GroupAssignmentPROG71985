@@ -1,6 +1,7 @@
 #pragma once
 #include "node.h"
 #include "stdbool.h"
+#include "StringUtils.h"
 /*PROG1985 F22 Section2 - Group Project - taskManager.h
 *Author: Bryan Lejkowski
 *Main Contributor: Bryan Lejkowski

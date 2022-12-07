@@ -15,8 +15,9 @@
 * Return: void
 */
 #include <stdbool.h>
+#include "StringUtils.h"
 #include "taskManager.h"
-bool selectionFunction(pLIST, bool*, char*);
+bool selectionFunction(pLIST, bool*);
 
 /*
 * Function: printMenu()

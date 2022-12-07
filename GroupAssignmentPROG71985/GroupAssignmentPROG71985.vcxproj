@@ -131,6 +131,7 @@
     <ClCompile Include="node.c" />
     <ClCompile Include="operations.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="StringUtils.c" />
     <ClCompile Include="switch.c" />
     <ClCompile Include="task.c" />
     <ClCompile Include="taskManager.c" />
@@ -139,6 +140,7 @@
     <ClInclude Include="File.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="operations.h" />
+    <ClInclude Include="StringUtils.h" />
     <ClInclude Include="switch.h" />
     <ClInclude Include="task.h" />
     <ClInclude Include="taskManager.h" />

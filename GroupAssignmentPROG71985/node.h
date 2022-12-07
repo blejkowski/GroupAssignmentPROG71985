@@ -7,6 +7,7 @@
 */
 #pragma once
 #include "task.h"
+#include "StringUtils.h"
 typedef struct listnode {
 	TASK task;
 	struct listnode* next;

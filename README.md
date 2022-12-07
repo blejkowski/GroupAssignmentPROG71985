@@ -1,14 +1,20 @@
-# GroupAssignmentPROG71985
+# PROG71985 Group Project
 
-## File information
+This file contains a brief description and division of labor on Group 31's submission.
 
-### taskManager.h/c
-Definitions and declarations of a linked list implementation using a struct of task. This is refered to as list/taskManager in the code.
-### node.h/c
-Defintion and declarations of a node to be used in a list
-### task.h/c
-Definitions and declarations of a struct defining a task and its associated functions.
-### operations.h/c
-Definitions and declarations of the operations that can be performed by the user used in the switch.c file
-### switch.h/c
-Definitions and declarations of the functions used in the main function. This contains the function that gets what operations the user would like to perform then executes it from a switch implementation.
+We decided to develop a to-do list app / task manager. This application uses a linked-list data structure to perform create, reading, updating and displaying operations, as well as some searching capabilities.
+
+# Division Of Labor
+
+The division of labor organized by group member.
+
+## Aidan
+- 
+
+## Salah
+-
+## Bryan
+- Created overall structure of program, main loop, switch case, operations.
+- Implemented the Linked List Data Structure (taskManager.h/c and node.h/c)
+- Implemented following task functionality according to specifications: including add task, remove task, update task, sort task by priority, display all and display single tasks functionality. 
+- Implemented other task functions such as: getNumberOfTasks, findTaskByNumber

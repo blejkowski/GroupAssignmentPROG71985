@@ -41,22 +41,23 @@ void printMenu(void) {
 	
 }
 
-bool selectionFunction(pLIST taskManager, bool* runPtr, char* argv) {
+bool selectionFunction(pLIST taskManager, bool* runPtr) {
 	
 	int option;
 	char buf[NUM_SIZE_BYTES];
 	
 	// As using scanf to parse input leaves a new line character, it was decided to use fgets and 
 	// convert the input to an integer. The program keeps asking for input until a number is entered.
+	printf("enter a number: ");
 	do {
-		printf("enter a number: ");
+		
 		if (!fgets(buf, NUM_SIZE_BYTES, stdin)) {
 			return 1;
 		}
 		option = atoi(buf);
 	} while (option == 0);
 
-	
+	CleanNewLineFromString(buf);
 	switch (option) {
 	case 1:
 		
@@ -94,7 +95,8 @@ bool selectionFunction(pLIST taskManager, bool* runPtr, char* argv) {
 			fprintf(stderr, "Range could not be displayed");
 		break;
 	default:
-		saveToFile(taskManager, argv);
+
+		saveToFile(taskManager);
 		*runPtr = false;
 		//exit(1);
 		break;

@@ -17,22 +17,16 @@
 * Added partial File I/O support. Needs refactoring.
 * 
 */
-int main(int argc, char* argv[]) {
-	checkFile(argv[1]);
-	// If this function fails, or if the count is otherwise not what it should be, the program exits.
-	if (argc != 2) {
-		printf("Usage: %s filename\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
-	printWelcome(); 
+int main() {
+	checkFile();
+	printWelcome();
 	bool run = true;
 	pLIST taskManager = createList(); //create a heap allocated list structure that acts as a "task manager"
+	readFromFile(&taskManager);
 	do {
 		printMenu();
-		run = selectionFunction(&taskManager, &run, argv[1]);
+		run = selectionFunction(&taskManager, &run);
 	} while (run == true);
-
-	
 
 	return 0;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <stdbool.h>
 #include "taskManager.h"
+#include "StringUtils.h"
 /*PROG1985 F22 Section2 - Group Project - operations.h
 *Author: Bryan Lejkowski
 *Main Contributor: Bryan Lejkowski

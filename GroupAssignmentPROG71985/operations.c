@@ -20,9 +20,8 @@ bool addTaskOperation(pLIST taskManager) {
 	//Get the input from the user and store
 	printf("Enter the task: ");
 	char taskString[MAX_LENGTH];
-	fflush(stdin);
 	fgets(taskString, MAX_LENGTH, stdin);
-	//scanf(" %s", taskString);
+	CleanNewLineFromString(taskString);
 	printf("What is the priority of this task?\nHigh - 3\nMedium - 2\nLow - 1\n");
 	int priority = 0;
 

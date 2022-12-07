@@ -16,7 +16,7 @@ pLISTNODE createNode(TASK task) {
 
 	if (!newNode) {
 		fprintf(stderr, "error allocating memory");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else {
 		newNode->task = copyTask(task);
