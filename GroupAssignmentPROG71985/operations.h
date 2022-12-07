@@ -59,3 +59,19 @@ bool displaySingleTaskOperation(pLIST);
 * Return: bool Successful addition returns true, unsuccessful addition returns false
 */
 bool SortTasksByPriorityOperation(pLIST taskManager);
+
+/*
+
+ Function: DisplayRangeOperation()
+
+ This function gives the DisplayRangeOfTasks function variables so that way the functions works properly
+
+ Params: pLIST taskManager
+ Return: bool Successful addition returns true, unsuccessful addition returns false
+
+
+*/
+
+
+
+bool DisplayRangeOperation(pLIST taskManager);
